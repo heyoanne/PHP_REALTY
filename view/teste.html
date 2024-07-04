@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .math {
+
+            display: flex;
+
+            justify-content: flex-start;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="math">
+
+        <p id="valor1"></p>
+
+        <p> + </p>
+
+        <p id="valor2"></p>
+
+        <p> =</p>
+
+        <input id="totalvalores" type="text" name="totalvalores" required="">
+
+    </div>
+
+    <p id="aviso"></p>
+
+
+
+    <button id="enviar" type="submit">Entrar</button>
+
+    <script>
+
+        var valor1 = Math.floor((Math.random() * 10) + 1);
+        var valor2 = Math.floor((Math.random() * 10) + 1);
+
+
+        document.getElementById("valor1").innerHTML = valor1;
+        document.getElementById("valor2").innerHTML = valor2;
+        document.getElementById("enviar").setAttribute("disabled", "");
+        document.getElementById('totalvalores').onchange = function () { validar() }
+
+        function validar() {
+            var totalvalores = document.getElementById("totalvalores").value;
+            if (totalvalores == valor1 + valor2) {
+                document.getElementById('aviso').innerHTML = "reCAPTCHA válido";
+                document.getElementById("enviar").removeAttribute("disabled");
+            } else {
+
+                document.getElementById('aviso').innerHTML = "reCAPTCHA inválido";
+                document.getElementById("enviar").setAttribute("disabled", "");
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
